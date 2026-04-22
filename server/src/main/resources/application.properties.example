@@ -1,0 +1,82 @@
+# ============================================
+# SERVER CONFIGURATION
+# ============================================
+server.port=${PORT:8080}
+server.address=0.0.0.0
+app.frontend.url=${FRONTEND_URL:http://localhost:5173}
+app.cors.allowed-origins=${CORS_ALLOWED_ORIGINS:http://localhost:5173,http://localhost:5174}
+app.oauth.allowed-redirect-origins=${OAUTH_ALLOWED_REDIRECT_ORIGINS:http://localhost:5173,http://localhost:5174}
+server.servlet.session.cookie.http-only=true
+server.servlet.session.cookie.same-site=${SESSION_COOKIE_SAME_SITE:Lax}
+server.servlet.session.cookie.secure=${SESSION_COOKIE_SECURE:false}
+
+# ============================================
+# POSTGRESQL DATABASE CONFIGURATION
+# ============================================
+# Replace with your PostgreSQL connection details
+ApplicationName=supply-chain-app
+spring.datasource.username=postgres
+spring.datasource.password=YOUR_DATABASE_PASSWORD_HERE
+spring.datasource.driver-class-name=org.postgresql.Driver
+
+# ============================================
+# JPA / HIBERNATE CONFIGURATION
+# ============================================
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.format_sql=true
+spring.datasource.url=${DATABASE_URL:jdbc:postgresql://localhost:5432/cargo_db}
+
+# ============================================
+# KAFKA PRODUCER CONFIGURATION
+# ============================================
+spring.kafka.bootstrap-servers=${KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
+spring.kafka.producer.key-serializer=org.apache.kafka.common.serialization.StringSerializer
+spring.kafka.producer.value-serializer=org.apache.kafka.common.serialization.StringSerializer
+
+# ============================================
+# KAFKA CONSUMER CONFIGURATION
+# ============================================
+spring.kafka.consumer.bootstrap-servers=${KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
+spring.kafka.consumer.group-id=supply-chain-group
+spring.kafka.consumer.auto-offset-reset=earliest
+spring.kafka.consumer.key-deserializer=org.apache.kafka.common.serialization.StringDeserializer
+spring.kafka.consumer.value-deserializer=org.apache.kafka.common.serialization.StringDeserializer
+
+# ============================================
+# WEBSOCKET CONFIGURATION
+# ============================================
+spring.websocket.enabled=true
+
+# ============================================
+# GOOGLE OAUTH2 CONFIGURATION
+# ============================================
+# Get your credentials from: https://console.cloud.google.com/apis/credentials
+# 1. Create a new OAuth 2.0 Client ID
+# 2. Add authorized redirect URI: http://localhost:8080/login/oauth2/code/google
+# 3. Replace the placeholders below with your actual credentials
+spring.security.oauth2.client.registration.google.client-id=YOUR_GOOGLE_CLIENT_ID_HERE
+spring.security.oauth2.client.registration.google.client-secret=YOUR_GOOGLE_CLIENT_SECRET_HERE
+spring.security.oauth2.client.registration.google.scope=profile,email
+spring.security.oauth2.client.registration.google.redirect-uri=${GOOGLE_REDIRECT_URI:http://localhost:8080/login/oauth2/code/google}
+spring.security.oauth2.client.registration.google.client-name=Google
+
+# EMAIL NOTIFICATION CONFIGURATION (sample values)
+spring.mail.host=smtp.gmail.com
+spring.mail.port=587
+spring.mail.username=your-email@example.com
+spring.mail.password=your-app-password
+spring.mail.properties.mail.smtp.auth=true
+spring.mail.properties.mail.smtp.starttls.enable=true
+
+notification.email.from=no-reply@example.com
+notification.email.recipients=ops@example.com,alerts@example.com
+
+# ============================================
+# INSTRUCTIONS TO USE THIS FILE:
+# ============================================
+# 1. Copy this file and rename it to: application.properties
+# 2. Replace all placeholder values (YOUR_*_HERE) with your actual credentials
+# 3. Never commit application.properties to git (it's already in .gitignore)
+# 4. Keep this example file as a reference for other team members
