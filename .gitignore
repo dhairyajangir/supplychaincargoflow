@@ -1,0 +1,39 @@
+# Application Properties with Secrets
+server/src/main/resources/application.properties
+
+# Compiled files
+*.class
+*.jar
+!**/src/main/**/target/**
+!**/src/test/**/target/**
+
+# Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+
+# Node
+node_modules/
+dist/
+.npm
+*.log
+
+# IDE
+.idea/
+.vscode/
+*.iml
+*.iws
+*.ipr
+.DS_Store
+
+# Environment files
+.env
+.env.local
+.env.*.local
