@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CargoFlow Documentation Hub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Source+Serif+4:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./documentation.css" />
+  </head>
+  <body>
+    <div class="bg-glow bg-glow-left" aria-hidden="true"></div>
+    <div class="bg-glow bg-glow-right" aria-hidden="true"></div>
+
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="brand-block">
+          <p class="eyebrow">CargoFlow</p>
+          <h1>Documentation Hub</h1>
+          <p class="subtitle">One place to explore architecture, backend, UI, and operations docs.</p>
+          <p class="subtitle"><a href="https://github.com/dhairyajangir/cargoflow" target="_blank" rel="noreferrer">Repository</a></p>
+        </div>
+
+        <div class="search-block">
+          <label for="docSearch">Find documentation</label>
+          <input id="docSearch" type="search" placeholder="Search by title, topic, or file" />
+        </div>
+
+        <nav class="doc-nav" aria-label="Documentation files">
+          <ul id="docNavList"></ul>
+        </nav>
+      </aside>
+
+      <main class="content">
+        <section class="hero">
+          <p class="eyebrow">Project docs overview</p>
+          <h2>CargoFlow docs portal</h2>
+          <p>
+            This page organizes every markdown file in the docs folder into quick explanations and a live preview area.
+            Use the search box to filter docs instantly.
+          </p>
+          <div class="stats" id="docStats"></div>
+        </section>
+
+        <section>
+          <h3>Documentation map</h3>
+          <div id="docCards" class="cards"></div>
+        </section>
+
+        <section class="viewer" aria-live="polite">
+          <div class="viewer-header">
+            <div>
+              <p class="eyebrow" id="viewerCategory">Select a doc</p>
+              <h3 id="viewerTitle">Documentation details</h3>
+            </div>
+            <a id="viewerSource" class="source-link" href="https://github.com/dhairyajangir/cargoflow/tree/main/docs" target="_blank" rel="noreferrer">Open source file</a>
+          </div>
+
+          <p class="viewer-summary" id="viewerSummary">
+            Choose any document from the left menu or cards to view summary and markdown content.
+          </p>
+
+          <div id="viewerBody" class="viewer-body">
+            <p class="empty-state">Select a file to load its markdown content.</p>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="./documentation.js" defer></script>
+  </body>
+</html>
