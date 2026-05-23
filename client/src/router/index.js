@@ -1,26 +1,26 @@
 import { createRouter, createWebHistory } from 'vue-router'
-
-import LandingPage from '../components/LandingPage.vue'
-import Dashboard from '../components/Dashboard.vue'
-import RouteList from '../components/routes/RouteList.vue'
-import RouteForm from '../components/routes/RouteForm.vue'
-import RouteDetails from '../components/routes/RouteDetails.vue'
-import VendorList from '../components/vendors/VendorList.vue'
-import VendorForm from '../components/vendors/VendorForm.vue'
-import VendorDetails from '../components/vendors/VendorDetails.vue'
-import ShipmentList from '../components/shipments/ShipmentList.vue'
-import ShipmentForm from '../components/shipments/ShipmentForm.vue'
-import ShipmentDetails from '../components/shipments/ShipmentDetails.vue'
-import CargoList from '../components/cargo/CargoList.vue'
-import CargoForm from '../components/cargo/CargoForm.vue'
-import CargoDetails from '../components/cargo/CargoDetails.vue'
-import Deliveries from '../components/Deliveries.vue'
-import Login from '../components/Login.vue'
-import OAuthCallback from '../components/OAuthCallback.vue'
-import Settings from '../components/Settings.vue'
-import AdminPanel from '../components/AdminPanel.vue'
 import { useAuth } from '../services/auth'
-// Create placeholder components for other routes
+
+const LandingPage = () => import('../components/LandingPage.vue')
+const Dashboard = () => import('../components/Dashboard.vue')
+const RouteList = () => import('../components/routes/RouteList.vue')
+const RouteForm = () => import('../components/routes/RouteForm.vue')
+const RouteDetails = () => import('../components/routes/RouteDetails.vue')
+const VendorList = () => import('../components/vendors/VendorList.vue')
+const VendorForm = () => import('../components/vendors/VendorForm.vue')
+const VendorDetails = () => import('../components/vendors/VendorDetails.vue')
+const ShipmentList = () => import('../components/shipments/ShipmentList.vue')
+const ShipmentForm = () => import('../components/shipments/ShipmentForm.vue')
+const ShipmentDetails = () => import('../components/shipments/ShipmentDetails.vue')
+const CargoList = () => import('../components/cargo/CargoList.vue')
+const CargoForm = () => import('../components/cargo/CargoForm.vue')
+const CargoDetails = () => import('../components/cargo/CargoDetails.vue')
+const Deliveries = () => import('../components/Deliveries.vue')
+const Login = () => import('../components/Login.vue')
+const OAuthCallback = () => import('../components/OAuthCallback.vue')
+const Settings = () => import('../components/Settings.vue')
+const AdminPanel = () => import('../components/AdminPanel.vue')
+
 const Analytics = { template: '<div class="p-8"><h1 class="text-2xl font-bold mb-4">Analytics</h1><p>View analytics and reports.</p></div>' }
 
 const routes = [

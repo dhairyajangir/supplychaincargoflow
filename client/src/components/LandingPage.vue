@@ -254,15 +254,15 @@
       <section id="solutions" class="py-16 md:py-32">
         <div class="mx-auto max-w-5xl space-y-8 px-6 md:space-y-16">
           <h2 class="relative z-10 max-w-xl text-4xl font-medium lg:text-5xl">
-            The CargoFlow brings together our models.
+            One platform for your entire supply chain.
           </h2>
           <div class="relative">
             <div class="relative z-10 space-y-4 md:w-1/2">
               <p>
-                CargoFlow is evolving to be more than just tracking. <span class="font-medium">It supports an entire ecosystem</span> — from cargo management to shipment optimization and vendor coordination.
+                CargoFlow is more than just tracking. <span class="font-medium">It unifies your entire operation</span> — from cargo management to shipment optimization and vendor coordination.
               </p>
               <p>
-                It supports an entire ecosystem — from real-time tracking to advanced analytics and automation helping logistics teams and businesses innovate and scale efficiently.
+                Leverage real-time tracking, advanced analytics, and intelligent automation to help your logistics team move faster and scale with confidence.
               </p>
 
               <div class="grid grid-cols-2 gap-3 pt-6 sm:gap-4">
@@ -295,6 +295,7 @@
                   src="../assets/charts-light.png"
                   class="rounded-xl shadow-lg"
                   alt="CargoFlow analytics dashboard"
+                  loading="lazy"
                 />
               </div>
             </div>
@@ -309,10 +310,8 @@
         <div class="grid gap-12 md:grid-cols-5">
           <div class="md:col-span-2">
             <a href="/" class="flex items-center space-x-2">
-              <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center">
-                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
-                </svg>
+              <div class="w-8 h-8 rounded-lg bg-white flex items-center justify-center p-1">
+                <img src="@/assets/cargoflow.svg" alt="CargoFlow Logo" class="w-full h-full object-contain" />
               </div>
               <span class="text-lg font-semibold text-gray-900">CargoFlow</span>
             </a>
@@ -366,8 +365,8 @@ const navbar = ref(null)
 // Menu items
 const menuItems = ref([
   { name: 'Features', href: '#features' },
-  { name: 'Content', href: '#solutions' },
-  { name: 'Footer', href: '#footer' }
+  { name: 'Solutions', href: '#solutions' },
+  { name: 'Contact', href: '#footer' }
 ])
 
 // Footer links
@@ -522,23 +521,24 @@ const generateParticles = () => {
   }))
 }
 
+let scrollThrottle = null
 const handleScroll = () => {
-  scrolled.value = window.scrollY > 50
+  if (scrollThrottle) return
+  scrollThrottle = requestAnimationFrame(() => {
+    scrolled.value = window.scrollY > 50
+    scrollThrottle = null
+  })
 }
 
 // Lifecycle hooks
 onMounted(() => {
-  // Check if user is already logged in, redirect to dashboard
-  if (auth.isAuthenticated.value) {
-    router.push('/dashboard')
-  }
-  
   generateParticles()
-  window.addEventListener('scroll', handleScroll)
+  window.addEventListener('scroll', handleScroll, { passive: true })
 })
 
 onUnmounted(() => {
   window.removeEventListener('scroll', handleScroll)
+  if (scrollThrottle) cancelAnimationFrame(scrollThrottle)
 })
 </script>
 

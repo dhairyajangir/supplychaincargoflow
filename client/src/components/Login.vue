@@ -40,12 +40,12 @@
             </div>
 
             <!-- Error Message -->
-            <div v-if="error" class="p-3 bg-red-50 border border-red-200 rounded-lg text-red-700 text-sm">
+            <div v-if="error" class="p-3 bg-red-950/50 border border-red-800 rounded-lg text-red-300 text-sm">
               {{ error }}
             </div>
 
             <!-- Success Message -->
-            <div v-if="success" class="p-3 bg-green-50 border border-green-200 rounded-lg text-green-700 text-sm">
+            <div v-if="success" class="p-3 bg-green-950/50 border border-green-800 rounded-lg text-green-300 text-sm">
               {{ success }}
             </div>
 
@@ -144,12 +144,12 @@
             </div>
 
             <!-- Error Message -->
-            <div v-if="error" class="p-3 bg-red-50 border border-red-200 rounded-lg text-red-700 text-sm">
+            <div v-if="error" class="p-3 bg-red-950/50 border border-red-800 rounded-lg text-red-300 text-sm">
               {{ error }}
             </div>
 
             <!-- Success Message -->
-            <div v-if="success" class="p-3 bg-green-50 border border-green-200 rounded-lg text-green-700 text-sm">
+            <div v-if="success" class="p-3 bg-green-950/50 border border-green-800 rounded-lg text-green-300 text-sm">
               {{ success }}
             </div>
 
