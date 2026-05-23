@@ -52,9 +52,9 @@
     </div>
 
     <!-- Main Content -->
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-5">
+    <div class="grid grid-cols-1 xl:grid-cols-3 gap-5">
       <!-- Recent Activity -->
-      <Card class="lg:col-span-2 rounded-xl border shadow-sm hover:shadow-md transition-shadow">
+      <Card class="xl:col-span-2 rounded-xl border shadow-sm hover:shadow-md transition-shadow">
         <CardHeader class="pb-3">
           <div class="flex items-center justify-between gap-3">
             <CardTitle class="flex items-center gap-2 text-base">

@@ -135,7 +135,7 @@
           <div class="mx-auto max-w-5xl px-6">
             <div class="sm:mx-auto lg:mr-auto lg:mt-0">
               <!-- Hero Title with Animation -->
-              <h1 class="mt-8 max-w-2xl text-balance text-5xl font-medium md:text-6xl lg:mt-16 animate-fade-in">
+              <h1 class="mt-8 max-w-2xl text-balance text-3xl font-medium sm:text-4xl md:text-5xl lg:text-6xl lg:mt-16 animate-fade-in">
                 Streamline Your Supply Chain Operations
               </h1>
               
@@ -194,7 +194,7 @@
 
           <div class="relative mx-auto grid max-w-4xl divide-x divide-y border sm:grid-cols-2 lg:grid-cols-3">
             <!-- Feature 1: Fast -->
-            <div class="space-y-3 p-12">
+            <div class="space-y-3 p-6 sm:p-8 lg:p-12">
               <div class="flex items-center gap-2">
                 <Zap class="w-4 h-4" />
                 <h3 class="text-sm font-medium">Lightning Fast</h3>
@@ -203,7 +203,7 @@
             </div>
 
             <!-- Feature 2: Powerful -->
-            <div class="space-y-2 p-12">
+            <div class="space-y-2 p-6 sm:p-8 lg:p-12">
               <div class="flex items-center gap-2">
                 <Cpu class="w-4 h-4" />
                 <h3 class="text-sm font-medium">Powerful Analytics</h3>
@@ -212,7 +212,7 @@
             </div>
 
             <!-- Feature 3: Security -->
-            <div class="space-y-2 p-12">
+            <div class="space-y-2 p-6 sm:p-8 lg:p-12">
               <div class="flex items-center gap-2">
                 <Fingerprint class="w-4 h-4" />
                 <h3 class="text-sm font-medium">Secure & Reliable</h3>
@@ -221,7 +221,7 @@
             </div>
 
             <!-- Feature 4: Customization -->
-            <div class="space-y-2 p-12">
+            <div class="space-y-2 p-6 sm:p-8 lg:p-12">
               <div class="flex items-center gap-2">
                 <Pencil class="w-4 h-4" />
                 <h3 class="text-sm font-medium">Fully Customizable</h3>
@@ -230,7 +230,7 @@
             </div>
 
             <!-- Feature 5: Control -->
-            <div class="space-y-2 p-12">
+            <div class="space-y-2 p-6 sm:p-8 lg:p-12">
               <div class="flex items-center gap-2">
                 <Settings2 class="w-4 h-4" />
                 <h3 class="text-sm font-medium">Complete Control</h3>
@@ -239,7 +239,7 @@
             </div>
 
             <!-- Feature 6: Built for Scale -->
-            <div class="space-y-2 p-12">
+            <div class="space-y-2 p-6 sm:p-8 lg:p-12">
               <div class="flex items-center gap-2">
                 <Sparkles class="w-4 h-4" />
                 <h3 class="text-sm font-medium">Built to Scale</h3>
@@ -307,7 +307,7 @@
     <!-- Footer -->
     <footer id="footer" class="border-t bg-white pt-20">
       <div class="mx-auto max-w-5xl px-6">
-        <div class="grid gap-12 md:grid-cols-5">
+        <div class="grid gap-6 md:gap-12 md:grid-cols-5">
           <div class="md:col-span-2">
             <a href="/" class="flex items-center space-x-2">
               <div class="w-8 h-8 rounded-lg bg-white flex items-center justify-center p-1">

@@ -20,25 +20,25 @@
       <!-- Title Section -->
       <div class="flex items-start gap-4">
         <!-- Icon -->
-        <div 
-          v-if="icon" 
+        <div
+          v-if="icon"
           :class="[
-            'flex items-center justify-center rounded-2xl p-4 shadow-sm',
+            'flex items-center justify-center rounded-2xl p-3 sm:p-4 shadow-sm shrink-0',
             iconBgColor || 'bg-gradient-to-br from-gray-50 to-gray-100 dark:from-sidebar-accent dark:to-sidebar'
           ]"
         >
-          <component 
-            :is="icon" 
+          <component
+            :is="icon"
             :class="[
-              'w-7 h-7',
+              'w-5 h-5 sm:w-7 sm:h-7',
               iconColor || 'text-gray-900 dark:text-sidebar-foreground'
-            ]" 
+            ]"
           />
         </div>
 
         <!-- Title and Description -->
-        <div class="flex-1">
-          <h1 class="text-4xl font-bold text-gray-900 dark:text-sidebar-foreground tracking-tight leading-tight">
+        <div class="flex-1 min-w-0">
+          <h1 class="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-sidebar-foreground tracking-tight leading-tight">
             {{ title }}
           </h1>
           <p v-if="description" class="text-base text-gray-600 dark:text-sidebar-foreground/70 mt-2 leading-relaxed max-w-3xl">
@@ -48,7 +48,7 @@
       </div>
 
       <!-- Actions -->
-      <div v-if="$slots.actions" class="flex items-center gap-3 flex-shrink-0">
+      <div v-if="$slots.actions" class="flex items-center gap-3 shrink-0 self-start sm:self-auto">
         <slot name="actions" />
       </div>
     </div>

@@ -1,5 +1,5 @@
 <template>
-  <div class="container mx-auto px-4 py-8">
+  <div class="space-y-6">
     <div class="max-w-3xl mx-auto">
       <!-- Header -->
       <div class="mb-6">
@@ -7,7 +7,7 @@
           <ArrowLeft class="mr-2 h-4 w-4" />
           Back to Shipments
         </Button>
-        <h1 class="text-3xl font-bold text-gray-900 dark:text-sidebar-foreground">
+        <h1 class="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-sidebar-foreground">
           {{ isEditMode ? 'Edit Shipment' : 'Create Shipment' }}
         </h1>
         <p class="mt-2 text-gray-600 dark:text-sidebar-foreground/70">
@@ -26,7 +26,7 @@
         <CardContent>
           <form @submit.prevent="handleSubmit" class="space-y-6">
             <!-- Origin and Destination -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
               <div class="space-y-2">
                 <label for="origin" class="text-sm font-medium dark:text-sidebar-foreground">
                   Origin <span class="text-red-500">*</span>
@@ -55,7 +55,7 @@
             </div>
 
             <!-- Status and Estimated Delivery -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
               <div class="space-y-2">
                 <label for="status" class="text-sm font-medium dark:text-sidebar-foreground">
                   Status <span class="text-red-500">*</span>
@@ -104,7 +104,7 @@
             </div>
 
             <!-- Route and Vendor -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
               <div class="space-y-2">
                 <label for="assignedRoute" class="text-sm font-medium dark:text-sidebar-foreground">
                   Assigned Route (Optional)
@@ -181,7 +181,7 @@
             </div>
 
             <!-- Form Actions -->
-            <div class="flex items-center justify-end space-x-4 pt-4 border-t">
+            <div class="flex flex-col-reverse sm:flex-row sm:items-center sm:justify-end gap-3 pt-4 border-t">
               <Button
                 type="button"
                 @click="goBack"
@@ -202,7 +202,6 @@
         </CardContent>
       </Card>
     </div>
-  </div>
 </template>
 
 <script setup>

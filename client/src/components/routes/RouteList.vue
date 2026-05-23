@@ -1,14 +1,14 @@
 <template>
-  <div class="container mx-auto px-4 py-8">
+  <div class="space-y-6">
     <div class="space-y-6">
       <!-- Header Section -->
-      <PageHeader 
+      <PageHeader
         :title="$t('routes.title')"
         :description="$t('routes.subtitle')"
       />
 
       <!-- Stats Cards -->
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <!-- Total Routes Card -->
         <Card class="rounded-xl border shadow-sm hover:shadow-md transition-shadow overflow-hidden !pt-0">
           <div class="px-4 pt-2.5 pb-1.5 bg-white dark:bg-sidebar">
@@ -77,31 +77,31 @@
       <!-- Routes Table/Map Section -->
       <Card>
         <CardHeader>
-          <div class="flex items-center justify-between">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
             <div>
               <CardTitle>{{ $t('routes.allRoutes') }}</CardTitle>
               <CardDescription>
                 {{ $t('routes.allRoutesDesc') }}
               </CardDescription>
             </div>
-            <div class="flex items-center space-x-2">
-              <Button 
-                @click="viewMode = 'table'" 
+            <div class="flex flex-wrap items-center gap-2">
+              <Button
+                @click="viewMode = 'table'"
                 :variant="viewMode === 'table' ? 'default' : 'outline'"
                 size="sm"
               >
                 <List class="mr-2 h-4 w-4" />
                 {{ $t('routes.table') }}
               </Button>
-              <Button 
-                @click="viewMode = 'map'" 
+              <Button
+                @click="viewMode = 'map'"
                 :variant="viewMode === 'map' ? 'default' : 'outline'"
                 size="sm"
               >
                 <MapIcon class="mr-2 h-4 w-4" />
                 {{ $t('routes.map') }}
               </Button>
-              <Button @click="$router.push('/routes/create')">
+              <Button @click="$router.push('/routes/create')" class="w-full sm:w-auto">
                 <Plus class="mr-2 h-4 w-4" />
                 {{ $t('common.createRoute') }}
               </Button>
@@ -174,7 +174,7 @@
           </div>
           
           <!-- Map View -->
-          <div v-else-if="viewMode === 'map'" class="h-[600px]">
+          <div v-else-if="viewMode === 'map'" class="h-[300px] sm:h-[450px] md:h-[600px]">
             <Suspense>
               <template #default>
                 <RouteMap 
@@ -194,6 +194,7 @@
           
           <!-- Table View -->
           <div v-else>
+            <div class="overflow-x-auto -mx-6 px-6">
             <Table>
               <TableHeader>
                 <TableRow>
@@ -261,10 +262,10 @@
                 </TableRow>
               </TableBody>
             </Table>
+            </div>
           </div>
         </CardContent>
       </Card>
-    </div>
 
     <!-- Delete Confirmation Dialog -->
     <Dialog v-model:open="deleteDialog.isOpen">
@@ -343,7 +344,6 @@
         </DialogFooter>
       </DialogContent>
     </Dialog>
-  </div>
 </template>
 
 <script setup>
