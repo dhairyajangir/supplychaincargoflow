@@ -16,12 +16,15 @@ public class SecurityConfig {
 
     private final OAuth2LoginSuccessHandler oAuth2LoginSuccessHandler;
     private final String frontendUrl;
+    private final boolean authDisabled;
 
     public SecurityConfig(
             @Lazy OAuth2LoginSuccessHandler oAuth2LoginSuccessHandler,
-            @Value("${app.frontend.url:http://localhost:5173}") String frontendUrl) {
+            @Value("${app.frontend.url:http://localhost:5173}") String frontendUrl,
+            @Value("${app.auth.disabled:false}") boolean authDisabled) {
         this.oAuth2LoginSuccessHandler = oAuth2LoginSuccessHandler;
         this.frontendUrl = frontendUrl;
+        this.authDisabled = authDisabled;
     }
 
     // This bean allows AuthService to inject PasswordEncoder successfully
@@ -43,7 +46,11 @@ public class SecurityConfig {
                 .requestMatchers("/actuator/health", "/actuator/health/**").permitAll()
                 .requestMatchers(HttpMethod.GET, "/api/auth/user", "/api/auth/csrf-token").permitAll()
                 .requestMatchers(HttpMethod.POST, "/api/auth/login", "/api/auth/signup").permitAll()
-                .anyRequest().authenticated()
+                .anyRequest().access((authentication, context) ->
+                        new org.springframework.security.authorization.AuthorizationDecision(
+                                authDisabled || authentication.get().isAuthenticated()
+                                        && !(authentication.get() instanceof
+                                        org.springframework.security.authentication.AnonymousAuthenticationToken)))
             )
             .oauth2Login(oauth2 -> oauth2
                 .successHandler(oAuth2LoginSuccessHandler)

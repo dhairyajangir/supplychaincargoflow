@@ -25,6 +25,17 @@ const initializeAuth = () => {
 }
 
 /**
+ * Demo mode (VITE_AUTH_DISABLED=true): act as a guest so the login wall is skipped.
+ * Nothing is persisted; the guest is never an ADMIN.
+ */
+const AUTH_DISABLED = import.meta.env.VITE_AUTH_DISABLED === 'true'
+const enableGuestMode = () => {
+  if (!AUTH_DISABLED || isAuthenticated.value) return
+  user.value = { name: 'Guest', email: 'guest@cargoflow.local', role: 'USER' }
+  isAuthenticated.value = true
+}
+
+/**
  * Login with email and password
  * @param {Object} credentials - Email and password
  * @returns {Promise<Object>} - Response with success status
@@ -209,6 +220,7 @@ export const useAuth = () => {
     userPicture,
     
     // Methods
+    enableGuestMode,
     login,
     signup,
     logout,

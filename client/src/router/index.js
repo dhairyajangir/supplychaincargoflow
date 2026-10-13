@@ -285,6 +285,7 @@ router.beforeEach(async (to, from, next) => {
   }
   
   const auth = useAuth()
+  auth.enableGuestMode()
   const requiresAuth = to.matched.some(record => record.meta.requiresAuth)
   const hideForAuth = to.matched.some(record => record.meta.hideForAuth)
   const requiresAdmin = to.matched.some(record => record.meta.requiresAdmin)
