@@ -9,7 +9,7 @@
     </div>
 
     <!-- Stats Cards -->
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
       <Card class="rounded-xl border shadow-sm hover:shadow-md transition-shadow overflow-hidden !pt-0">
         <div class="px-4 pt-2.5 pb-1.5 bg-white dark:bg-sidebar">
           <span class="text-[13px] font-medium text-gray-600 dark:text-sidebar-foreground/70">{{ $t('deliveries.totalDeliveries') }}</span>
@@ -98,6 +98,7 @@
         </div>
         
         <div v-else>
+          <div class="overflow-x-auto -mx-6 px-6">
           <Table>
             <TableHeader>
               <TableRow>
@@ -143,6 +144,7 @@
               </TableRow>
             </TableBody>
           </Table>
+          </div>
         </div>
       </CardContent>
     </Card>

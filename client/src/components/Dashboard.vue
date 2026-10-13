@@ -52,9 +52,9 @@
     </div>
 
     <!-- Main Content -->
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-5">
+    <div class="grid grid-cols-1 xl:grid-cols-3 gap-5">
       <!-- Recent Activity -->
-      <Card class="lg:col-span-2 rounded-xl border shadow-sm hover:shadow-md transition-shadow">
+      <Card class="xl:col-span-2 rounded-xl border shadow-sm hover:shadow-md transition-shadow">
         <CardHeader class="pb-3">
           <div class="flex items-center justify-between gap-3">
             <CardTitle class="flex items-center gap-2 text-base">
@@ -683,31 +683,21 @@ const formatRelativeTime = (ts) => {
 }
 
 const navigateToActivity = (activity) => {
-  // If shipmentId exists, it's a shipment activity - use the numeric id
-  if (activity.shipmentId && activity.id) {
-    return router.push(`/shipments/${activity.id}`)
+  if (activity.shipmentId) {
+    return router.push(`/shipments/${activity.shipmentId}`)
   }
-  
-  // If cargoId exists, it's a cargo activity
-  if (activity.cargoId && activity.id) {
-    return router.push(`/cargo/${activity.id}`)
+  if (activity.cargoId) {
+    return router.push(`/cargo/${activity.cargoId}`)
   }
-  
-  // If routeId exists, it's a route activity
-  if (activity.routeId && activity.id) {
-    return router.push(`/routes/${activity.id}`)
+  if (activity.routeId) {
+    return router.push(`/routes/${activity.routeId}`)
   }
-  
-  // If vendorId exists, it's a vendor activity
-  if (activity.vendorId && activity.id) {
-    return router.push(`/vendors/${activity.id}`)
+  if (activity.vendorId) {
+    return router.push(`/vendors/${activity.vendorId}`)
   }
-  
-  // If deliveryId exists, navigate to deliveries
   if (activity.deliveryId) {
     return router.push(`/deliveries`)
   }
-  
   // Fallback: check nested objects
   if (activity.shipment?.id) return router.push(`/shipments/${activity.shipment.id}`)
   if (activity.cargo?.id) return router.push(`/cargo/${activity.cargo.id}`)

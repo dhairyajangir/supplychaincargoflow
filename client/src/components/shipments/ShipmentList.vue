@@ -1,16 +1,16 @@
 <template>
-  <div class="container mx-auto px-4 py-8">
+  <div class="space-y-6">
     <div class="space-y-6">
       <!-- Header Section -->
       <div class="flex items-center justify-between">
         <div>
-          <h1 class="text-3xl font-bold text-gray-900 dark:text-sidebar-foreground">{{ $t('shipments.title') }}</h1>
+          <h1 class="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-sidebar-foreground">{{ $t('shipments.title') }}</h1>
           <p class="mt-2 text-gray-600 dark:text-sidebar-foreground/70">{{ $t('shipments.subtitle') }}</p>
         </div>
       </div>
 
       <!-- Stats Cards -->
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <!-- Total Shipments Card -->
         <Card class="rounded-xl border shadow-sm hover:shadow-md transition-shadow overflow-hidden !pt-0">
           <div class="px-4 pt-2.5 pb-1.5 bg-white dark:bg-sidebar">
@@ -79,14 +79,14 @@
       <!-- Shipments Table -->
       <Card>
         <CardHeader>
-          <div class="flex items-center justify-between">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
             <div>
               <CardTitle>{{ $t('shipments.allShipments') }}</CardTitle>
               <CardDescription>
                 {{ $t('shipments.allShipmentsDesc') }}
               </CardDescription>
             </div>
-            <Button @click="$router.push('/shipments/create')">
+            <Button @click="$router.push('/shipments/create')" class="w-full sm:w-auto shrink-0">
               <Plus class="mr-2 h-4 w-4" />
               {{ $t('common.newShipment') }}
             </Button>
@@ -149,6 +149,7 @@
           </div>
           
           <div v-else>
+            <div class="overflow-x-auto -mx-6 px-6">
             <Table>
               <TableHeader>
                 <TableRow>
@@ -225,10 +226,10 @@
                 </TableRow>
               </TableBody>
             </Table>
+            </div>
           </div>
         </CardContent>
       </Card>
-    </div>
 
     <!-- Delete Confirmation Dialog -->
     <Dialog v-model:open="deleteDialog.isOpen">
@@ -308,6 +309,7 @@
         </DialogFooter>
       </DialogContent>
     </Dialog>
+  </div>
   </div>
 </template>
 

@@ -1,5 +1,5 @@
 <template>
-  <div class="container mx-auto px-4 py-8">
+  <div class="space-y-6">
     <div class="max-w-3xl mx-auto">
       <!-- Header -->
       <div class="mb-6">
@@ -7,7 +7,7 @@
           <ArrowLeft class="mr-2 h-4 w-4" />
           Back to Vendors
         </Button>
-        <h1 class="text-3xl font-bold text-gray-900 dark:text-sidebar-foreground">
+        <h1 class="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-sidebar-foreground">
           {{ isEditMode ? 'Edit Vendor' : 'Create Vendor' }}
         </h1>
         <p class="mt-2 text-gray-600 dark:text-sidebar-foreground/70">
@@ -115,7 +115,7 @@
             </div>
 
             <!-- Form Actions -->
-            <div class="flex items-center justify-end space-x-4 pt-4 border-t">
+            <div class="flex flex-col-reverse sm:flex-row sm:items-center sm:justify-end gap-3 pt-4 border-t">
               <Button
                 type="button"
                 @click="goBack"

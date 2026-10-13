@@ -1,5 +1,5 @@
 <template>
-  <div class="container mx-auto px-4 py-8 max-w-3xl">
+  <div class="max-w-3xl mx-auto">
     <div class="space-y-6">
       <!-- Back Button -->
       <div>
@@ -11,7 +11,7 @@
 
       <!-- Header Section -->
       <div>
-        <h1 class="text-3xl font-bold text-gray-900 dark:text-sidebar-foreground">
+        <h1 class="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-sidebar-foreground">
           {{ isEditMode ? 'Edit Route' : 'Create New Route' }}
         </h1>
         <p class="mt-2 text-gray-600 dark:text-sidebar-foreground/70">
@@ -36,7 +36,7 @@
         <CardContent>
           <form @submit.prevent="handleSubmit" class="space-y-6">
             <!-- Origin and Destination -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
               <div class="space-y-2">
                 <label class="text-sm font-medium dark:text-sidebar-foreground" for="originPort">
                   Origin Port <span class="text-red-500">*</span>
@@ -63,7 +63,7 @@
             </div>
 
             <!-- Duration and Distance -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
               <div class="space-y-2">
                 <label class="text-sm font-medium dark:text-sidebar-foreground" for="duration">
                   Duration (days) <span class="text-red-500">*</span>
@@ -103,7 +103,7 @@
             </div>
 
             <!-- Transportation Mode and Status -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
               <div class="space-y-2">
                 <label class="text-sm font-medium dark:text-sidebar-foreground" for="transportationMode">
                   Transport Mode
@@ -171,7 +171,7 @@
             </div>
 
             <!-- Form Actions -->
-            <div class="flex items-center justify-end space-x-4 pt-4 border-t">
+            <div class="flex flex-col-reverse sm:flex-row sm:items-center sm:justify-end gap-3 pt-4 border-t">
               <Button type="button" variant="outline" @click="handleCancel" :disabled="isSubmitting">
                 Cancel
               </Button>
