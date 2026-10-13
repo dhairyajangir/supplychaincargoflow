@@ -344,6 +344,8 @@
         </DialogFooter>
       </DialogContent>
     </Dialog>
+  </div>
+  </div>
 </template>
 
 <script setup>

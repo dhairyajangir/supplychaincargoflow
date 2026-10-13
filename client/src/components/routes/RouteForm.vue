@@ -184,6 +184,7 @@
         </CardContent>
       </Card>
     </div>
+  </div>
 </template>
 
 <script setup>
