@@ -8,3 +8,6 @@ target/
 application.properties
 application-*.properties
 !application.properties.example
+
+# Render profile holds only ${ENV} placeholders, no secrets
+!application-render.properties

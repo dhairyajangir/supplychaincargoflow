@@ -1,0 +1,38 @@
+# Render Blueprint: Spring Boot API + free Postgres.
+# Deploy: Render dashboard -> New -> Blueprint -> pick this repo.
+databases:
+  - name: cargoflow-db
+    plan: free
+    databaseName: cargo_db
+    user: cargoflow
+
+services:
+  - type: web
+    name: supplychaincargoflow-api
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /actuator/health
+    envVars:
+      - key: SPRING_PROFILES_ACTIVE
+        value: render
+      - key: JAVA_TOOL_OPTIONS
+        value: -Xmx380m -XX:+UseSerialGC
+      - key: FRONTEND_URL
+        value: https://supplychaincargoflow.vercel.app
+      - key: DB_HOST
+        fromDatabase: { name: cargoflow-db, property: host }
+      - key: DB_PORT
+        fromDatabase: { name: cargoflow-db, property: port }
+      - key: DB_NAME
+        fromDatabase: { name: cargoflow-db, property: database }
+      - key: DB_USER
+        fromDatabase: { name: cargoflow-db, property: user }
+      - key: DB_PASSWORD
+        fromDatabase: { name: cargoflow-db, property: password }
+      # Optional: set in the dashboard to enable Google sign-in
+      - key: GOOGLE_CLIENT_ID
+        sync: false
+      - key: GOOGLE_CLIENT_SECRET
+        sync: false
